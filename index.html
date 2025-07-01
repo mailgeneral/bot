@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bot de Consulta</title>
   <style>
     body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
@@ -16,7 +16,8 @@
       max-width: 600px; background: #fff; padding: 20px; border: 1px solid #ccc;
     }
     #userInput { width: 100%; padding: 10px; }
-    a { color: blue; cursor: pointer; text-decoration: underline; }
+    a { color: #0077cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -24,9 +25,9 @@
 
   <div id="login">
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" required /><br /><br />
+    <input type="text" id="nombre" required><br><br>
     <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" required pattern="[0-9]+" /><br /><br />
+    <input type="tel" id="telefono" required pattern="[0-9]+"><br><br>
     <button onclick="iniciarChat()">Comenzar a chatear</button>
   </div>
 
@@ -39,7 +40,6 @@
     let respuestasBase = [];
     let nombreUsuario = "";
 
-    // Normaliza texto para comparación
     const normalizarTexto = (texto) => {
       return texto.toLowerCase()
         .normalize("NFD")
@@ -49,22 +49,21 @@
         .trim();
     };
 
-    // Carga JSON en lugar de CSV
-    async function cargarRespuestasJSON(url) {
-      try {
-        const response = await fetch(url);
-        respuestasBase = await response.json();
-      } catch (error) {
-        console.error("Error cargando respuestas JSON:", error);
-      }
+    function hacerLinksClickeables(texto) {
+      const regex = /(https?:\/\/[^\s<]+)/g;
+      return texto.replace(regex, url => `<a href="${url}" target="_blank">${url}</a>`);
     }
 
-    // Función para responder según entrada del usuario
+    async function cargarJSONDesdeGitHub(url) {
+      const response = await fetch(url);
+      respuestasBase = await response.json();
+    }
+
     function responder(pregunta) {
       const normalizada = normalizarTexto(pregunta);
       for (const entrada of respuestasBase) {
-        const matchPositivas = entrada.positivas.some(p => normalizada.includes(normalizarTexto(p)));
-        const matchNegativas = entrada.negativas.some(n => normalizada.includes(normalizarTexto(n)));
+        const matchPositivas = entrada.positivas.some(p => normalizada.includes(p));
+        const matchNegativas = entrada.negativas.some(n => normalizada.includes(n));
         if (matchPositivas && !matchNegativas) {
           return entrada.respuesta.replaceAll("{{user}}", nombreUsuario);
         }
@@ -73,7 +72,6 @@
       return fallback ? fallback.respuesta.replaceAll("{{user}}", nombreUsuario) : "";
     }
 
-    // Inicia chat validando datos y muestra interfaz
     function iniciarChat() {
       const nombre = document.getElementById("nombre").value.trim();
       const telefono = document.getElementById("telefono").value.trim();
@@ -89,19 +87,17 @@
 
       const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
       const chatbox = document.getElementById("chatbox");
-      chatbox.innerHTML += `<div class='bot'>${bienvenida}</div>`;
+      chatbox.innerHTML += `<div class='bot'>${hacerLinksClickeables(bienvenida)}</div>`;
     }
 
-    // Simula una pregunta para los links clickeables
     function simularPregunta(texto) {
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='user'>${texto}</div>`;
       const respuesta = responder(texto);
-      chatbox.innerHTML += `<div class='bot'>${respuesta}</div>`;
+      chatbox.innerHTML += `<div class='bot'>${hacerLinksClickeables(respuesta)}</div>`;
       chatbox.scrollTop = chatbox.scrollHeight;
     }
 
-    // Evento para enter en input de usuario
     document.getElementById("userInput").addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         const input = e.target.value;
@@ -109,14 +105,14 @@
         const chatbox = document.getElementById("chatbox");
         chatbox.innerHTML += `<div class='user'>${input}</div>`;
         const respuesta = responder(input);
-        chatbox.innerHTML += `<div class='bot'>${respuesta}</div>`;
+        chatbox.innerHTML += `<div class='bot'>${hacerLinksClickeables(respuesta)}</div>`;
         e.target.value = "";
         chatbox.scrollTop = chatbox.scrollHeight;
       }
     });
 
-    // Carga las respuestas del archivo JSON
-    cargarRespuestasJSON('./respuestas_base.json');
+    // 👉 Cambiá el path si lo subís a otro lado
+    cargarJSONDesdeGitHub('./respuestas_base.json');
   </script>
 </body>
 </html>
