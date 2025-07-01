@@ -1,17 +1,11 @@
-palabras_positivas,palabras_negativas,respuesta
-"precio,cuesta,vale,cotizacion,cotizar,cuanto cuesta, costo, valor",,El precio depende del tipo de producto. Â¿QuÃ© producto te interesa? Te paso una lista: link http://misitio.com
-"abrir,destapar,tapar,desenroscar, destapado, abierto","hora,horario,atencion,abierto,cierran","Para abrir el envase, usa una espÃ¡tula o tu mano, no seas mentecato chirunflais!"
-"hora,horario, atencion,abierto,cierran, abren, cuando abren,esta abierto","abrir,destapar,tapar","Nuestro horario es de lunes a viernes, de 9:00 a 18:00 hs."
-"envio,mandan,entregan,llegan,reparten, envios, a domiciolio",,"Realizamos entrega a domicilio, dependiendo la zona y el monto. Consultanos para mÃ¡s detalles."
-"forma,pagar,pago,tarjeta,efectivo,transferencia, tarjeta  de credito, debito, meses, a meses, meses sin interes, interes",,"Aceptamos efectivo, tarjeta de dÃ©bito/crÃ©dito y transferencias bancarias."
-"rinde,dura,cubre,litraje,alcance,m2,metros cuadrados, rendimiento",,"Un litro cubre aproximadamente de 1 a 2 mÂ² por mano, dependiendo de la superficie."
-"ubicacion,donde,estan,llegar,direccion",,"Nuestra fÃ¡brica estÃ¡ en la colina del viejo, es un viejo carcamÃ¡n, que no sabe ni dÃ³nde estÃ¡ parado. En su honor (y su â€œolorâ€) nombramos â€œColina CarcamÃ¡nâ€ al cerro este. UbicaciÃ³n: https://ubicacion.com"
-respuesta_default,,"No entendÃ­ tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicaciÃ³n, caracterÃ­sticas del producto, formas de aplicaciÃ³n, fichas tÃ©cnicas, consejos, etc. SÃ© breve y por favor, haz una pregunta a la vez."
-"ficha, tecnica, especificaciones, caracteristicas, composicion, compuesto, de que esta hecho",,"aquí estan las fichas técnicas, https://vetealamier.com"
-"producto,productos,tienen,ofrecen,venden,tipo,categorias,catálogo",,"Tenemos varios productos disponibles:<br>
-👉 <a href='#' onclick='simularPregunta(\"impermeabilizante\")'>Impermeabilizante</a><br>
-👉 <a href='#' onclick='simularPregunta(\"sellador\")'>Sellador</a><br>
-👉 <a href='#' onclick='simularPregunta(\"resanador\")'>Resanador</a><br>
-👉 <a href='#' onclick='simularPregunta(\"pintura\")'>Pintura</a><br>
-<br>Hacé clic en el producto que te interesa para más detalles."
-
+palabras_positivas,palbras_negativas,respuesta
+"precio,cuesta,vale,cotizacion,cotizar,cuanto cuesta,costo,valor",,El precio depende del tipo de producto. ¿Qué producto te interesa? Te paso una lista: link http://misitio.com
+"abrir,destapar,tapar,desenroscar,destapado,abierto","hora,horario,atencion,abierto,cierran","Para abrir el envase, usa una espátula o tu mano, no seas mentecato chirunflais!"
+"hora,horario,atencion,abierto,cierran,abren,cuando abren,esta abierto","abrir,destapar,tapar","Nuestro horario es de lunes a viernes, de 9:00 a 18:00 hs."
+"envio,mandan,entregan,llegan,reparten,envios,a domicilio",,"Realizamos entrega a domicilio, dependiendo la zona y el monto. Consultanos para más detalles."
+"forma,pagar,pago,tarjeta,efectivo,transferencia,tarjeta de credito,debito,meses,a meses,meses sin interes,interes",,"Aceptamos efectivo, tarjeta de débito/crédito y transferencias bancarias."
+"rinde,dura,cubre,litraje,alcance,m2,metros cuadrados,rendimiento",,"Un litro cubre aproximadamente de 1 a 2 m² por mano, dependiendo de la superficie."
+"ubicacion,donde,estan,llegar,direccion",,"Nuestra fábrica está en la colina del viejo, es un viejo carcamán que no sabe ni dónde está parado. En su honor (y su “olor”) nombramos “Colina Carcamán” al cerro este. Ubicación: https://ubicacion.com"
+respuesta_default,,"No entendí tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicación, características del producto, formas de aplicación, fichas técnicas, consejos, etc. Sé breve y por favor, haz una pregunta a la vez."
+"ficha,tecnica,especificaciones,caracteristicas,composicion,compuesto,de que esta hecho",,Aquí están las fichas técnicas: https://vetealamier.com
+"producto,productos,tienen,ofrecen,venden,tipo,categorias,catálogo",,"Tenemos varios productos disponibles:<br>👉 <a href='#' onclick='simularPregunta(""impermeabilizante"")'>Impermeabilizante</a><br>👉 <a href='#' onclick='simularPregunta(""sellador"")'>Sellador</a><br>👉 <a href='#' onclick='simularPregunta(""resanador"")'>Resanador</a><br>👉 <a href='#' onclick='simularPregunta(""pintura"")'>Pintura</a><br><br>Hacé clic en el producto que te interesa para más detalles."
