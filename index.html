@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bot de Consulta</title>
+  <style>
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
+    #chatbox { border: 1px solid #ccc; padding: 10px; max-width: 600px; background: #fff; height: 400px; overflow-y: auto; }
+    .user, .bot { margin: 10px 0; }
+    .user { text-align: right; color: blue; }
+    .bot { text-align: left; color: green; }
+  </style>
+</head>
+<body>
+  <h2>Chatbot de Consultas</h2>
+  <div id="chatbox"></div>
+  <input type="text" id="userInput" placeholder="Escribí tu pregunta..." style="width: 100%; padding: 10px;" />
+
+  <script>
+    let respuestasBase = [];
+
+    const normalizarTexto = (texto) => {
+      return texto.toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^
