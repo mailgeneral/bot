@@ -24,4 +24,55 @@
       return texto.toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^
+        .replace(/[^\u0000-\u007F]/g, "")
+        .replace(/[^\w\s]/gi, "")
+        .replace(/\s+/g, " ")
+        .trim();
+    };
+
+    async function cargarCSVDesdeGitHub(url) {
+      const response = await fetch(url);
+      const data = await response.text();
+      const lineas = data.split("\n").slice(1); // quitar cabecera
+      respuestasBase = lineas.map(linea => {
+        const [positivas, negativas, respuesta] = linea.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
+        return {
+          positivas: positivas ? positivas.split(',').map(p => p.trim()) : [],
+          negativas: negativas ? negativas.split(',').map(n => n.trim()) : [],
+          respuesta: respuesta ? respuesta.trim().replace(/^"|"$/g, '') : ""
+        };
+      });
+    }
+
+    function responder(pregunta) {
+      const normalizada = normalizarTexto(pregunta);
+      for (const entrada of respuestasBase) {
+        const matchPositivas = entrada.positivas.some(p => normalizada.includes(p));
+        const matchNegativas = entrada.negativas.some(n => normalizada.includes(n));
+        if (matchPositivas && !matchNegativas) {
+          return entrada.respuesta;
+        }
+      }
+      const fallback = respuestasBase.find(r => r.positivas.includes("respuesta_default"));
+      return fallback ? fallback.respuesta : "No entendí tu consulta.";
+    }
+
+    document.getElementById("userInput").addEventListener("keydown", function (e) {
+      if (e.key === "Enter") {
+        const input = e.target.value;
+        if (!input.trim()) return;
+        const chatbox = document.getElementById("chatbox");
+        chatbox.innerHTML += `<div class='user'>${input}</div>`;
+        const respuesta = responder(input);
+        chatbox.innerHTML += `<div class='bot'>${respuesta}</div>`;
+        e.target.value = "";
+        chatbox.scrollTop = chatbox.scrollHeight;
+      }
+    });
+
+    // Cambia './respuestas_base.csv' si cambias el nombre o ruta del CSV
+    cargarCSVDesdeGitHub('./respuestas_base.csv');
+  </script>
+</body>
+</html>
+
