@@ -1,9 +1,10 @@
 palabras_positivas,palabras_negativas,respuesta
-"precio,cuesta,vale,cotización,cotizar",,El precio depende del tipo de producto. ¿Podés decirme cuál te interesa?
-"abrir,destapar,tapar,desenroscar","hora,horario,atención,abierto,cierran","Para abrir el envase, usá una espátula o destornillador plano con cuidado."
+"precio,cuesta,vale,cotizacion,cotizar",,El precio depende del tipo de producto. Que producto te interesa? Te paso una lista: link http://misitio.com
+"abrir,destapar,tapar,desenroscar","hora,horario,atencion,abierto,cierran","Para abrir el envase, usa una esp�tula o tu mano, no seas mentecato chirunflais!"
 "hora,horario,atención,abierto,cierran","abrir,destapar,tapar","Nuestro horario es de lunes a viernes, de 9:00 a 18:00 hs."
-"envío,mandan,entregan,llegan,reparten",,"Sí, realizamos envíos dentro de la ciudad y alrededores. Consultá zonas disponibles."
+"envio,mandan,entregan,llegan,reparten",,relalizamos entraga bla bla bla - respuestas de entregas a docmilio o lo que sea va a qui
 "forma,pagar,pago,tarjeta,efectivo,transferencia",,"Aceptamos efectivo, tarjeta de débito/crédito y transferencias bancarias."
-"rinde,dura,cubre,litraje,alcance",,"Un litro cubre aproximadamente de 1 a 2 m² por mano, dependiendo de la superficie."
+"rinde,dura,cubre,litraje,alcance,m2,metros cuadrados,",,"Un litro cubre aproximadamente de 1 a 2 m² por mano, dependiendo de la superficie."
 "producto,impermeabilizante,pintura,sellador",,"Contamos con impermeabilizantes acrílicos, cementosos, y pinturas para interior y exterior."
-"ubicación,dónde,están,dirección,llegar",,Nuestra fábrica está ubicada en CDMX. Enviamos ubicación por WhatsApp si lo solicitás.
+"ubicacion,donde,estan,llegar, direccion",,"Nuestra f�brica esta en una colina, que se llama colina del viejo, es un viejo carcam�n, que no sabe ni donde esta parado y en su honor u ""olor"" nombramos, colina carcam�n al cerro este. Puedes encontrar aqu� su ubicaci�n: https://ubicaci�n.com"
+respuesta_default,,"No entend� tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicaci�n, caracter�asticas del producto, formas de aplicaci�n, fichas t�cnicas, consejos, etc. Se breve y por favor, haz una pregunta a la vez. "
