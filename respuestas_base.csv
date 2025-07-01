@@ -8,4 +8,9 @@ palabras_positivas,palbras_negativas,respuesta
 "ubicacion,donde,estan,llegar,direccion",,"Nuestra fábrica está en la colina del viejo, es un viejo carcamán que no sabe ni dónde está parado. En su honor (y su “olor”) nombramos “Colina Carcamán” al cerro este. Ubicación: https://ubicacion.com"
 respuesta_default,,"No entendí tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicación, características del producto, formas de aplicación, fichas técnicas, consejos, etc. Sé breve y por favor, haz una pregunta a la vez."
 "ficha,tecnica,especificaciones,caracteristicas,composicion,compuesto,de que esta hecho",,Aquí están las fichas técnicas: https://vetealamier.com
-"producto,productos,tienen,ofrecen,venden,tipo,categorias,catálogo",,"Tenemos varios productos disponibles:<br>👉 <a href='#' onclick='simularPregunta(""impermeabilizante"")'>Impermeabilizante</a><br>👉 <a href='#' onclick='simularPregunta(""sellador"")'>Sellador</a><br>👉 <a href='#' onclick='simularPregunta(""resanador"")'>Resanador</a><br>👉 <a href='#' onclick='simularPregunta(""pintura"")'>Pintura</a><br><br>Hacé clic en el producto que te interesa para más detalles."
+"producto,productos,tienen,ofrecen,venden,tipo,categorias,catálogo",,"Tenemos varios productos disponibles:<br>
+👉 <a href='#' onclick='simularPregunta(\"impermeabilizante\")'>Impermeabilizante</a><br>
+👉 <a href='#' onclick='simularPregunta(\"sellador\")'>Sellador</a><br>
+👉 <a href='#' onclick='simularPregunta(\"resanador\")'>Resanador</a><br>
+👉 <a href='#' onclick='simularPregunta(\"pintura\")'>Pintura</a><br>
+<br>Hacé clic en el producto que te interesa para más detalles."
