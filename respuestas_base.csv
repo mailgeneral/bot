@@ -1,10 +1,11 @@
 palabras_positivas,palabras_negativas,respuesta
-"precio,cuesta,vale,cotizacion,cotizar",,El precio depende del tipo de producto. Que producto te interesa? Te paso una lista: link http://misitio.com
+"precio,cuesta,vale,cotizacion,cotizar",,"El precio depende del tipo de producto. ¿Qué producto te interesa? Te paso una lista: link http://misitio.com"
 "abrir,destapar,tapar,desenroscar","hora,horario,atencion,abierto,cierran","Para abrir el envase, usa una espátula o tu mano, no seas mentecato chirunflais!"
-"hora,horario,atenciÃ³n,abierto,cierran","abrir,destapar,tapar","Nuestro horario es de lunes a viernes, de 9:00 a 18:00 hs."
-"envio,mandan,entregan,llegan,reparten",,relalizamos entraga bla bla bla - respuestas de entregas a docmilio o lo que sea va a qui
-"forma,pagar,pago,tarjeta,efectivo,transferencia",,"Aceptamos efectivo, tarjeta de dÃ©bito/crÃ©dito y transferencias bancarias."
-"rinde,dura,cubre,litraje,alcance,m2,metros cuadrados,",,"Un litro cubre aproximadamente de 1 a 2 mÂ² por mano, dependiendo de la superficie."
-"producto,impermeabilizante,pintura,sellador",,"Contamos con impermeabilizantes acrÃ­licos, cementosos, y pinturas para interior y exterior."
-"ubicacion,donde,estan,llegar, direccion",,"Nuestra fábrica esta en una colina, que se llama colina del viejo, es un viejo carcamán, que no sabe ni donde esta parado y en su honor u ""olor"" nombramos, colina carcamán al cerro este. Puedes encontrar aquí su ubicación: https://ubicación.com"
-respuesta_default,,"No entendí tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicación, caracteríasticas del producto, formas de aplicación, fichas técnicas, consejos, etc. Se breve y por favor, haz una pregunta a la vez. "
+"hora,horario,atención,abierto,cierran","abrir,destapar,tapar","Nuestro horario es de lunes a viernes, de 9:00 a 18:00 hs."
+"envio,mandan,entregan,llegan,reparten",,"Realizamos entrega a domicilio, dependiendo la zona y el monto. Consultanos para más detalles."
+"forma,pagar,pago,tarjeta,efectivo,transferencia",,"Aceptamos efectivo, tarjeta de débito/crédito y transferencias bancarias."
+"rinde,dura,cubre,litraje,alcance,m2,metros cuadrados",,"Un litro cubre aproximadamente de 1 a 2 m² por mano, dependiendo de la superficie."
+"producto,impermeabilizante,pintura,sellador",,"Contamos con impermeabilizantes acrílicos, cementosos, y pinturas para interior y exterior."
+"ubicacion,donde,estan,llegar,direccion",,"Nuestra fábrica está en la colina del viejo, es un viejo carcamán, que no sabe ni dónde está parado. En su honor (y su “olor”) nombramos “Colina Carcamán” al cerro este. Ubicación: https://ubicacion.com"
+"respuesta_default",,"No entendí tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicación, características del producto, formas de aplicación, fichas técnicas, consejos, etc. Sé breve y por favor, haz una pregunta a la vez."
+
