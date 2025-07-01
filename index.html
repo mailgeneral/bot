@@ -2,14 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Bot de Consulta</title>
   <style>
     body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
     #chatbox {
       border: 1px solid #ccc; padding: 10px; max-width: 600px;
       background: #fff; height: 400px; overflow-y: auto; margin-bottom: 10px;
-      white-space: pre-wrap; /* para que respete saltos y espacios */
     }
     .user { text-align: right; color: blue; margin: 10px 0; }
     .bot { text-align: left; color: green; margin: 10px 0; }
@@ -25,9 +24,9 @@
 
   <div id="login">
     <label for="nombre">Nombre:</label>
-    <input type="text" id="nombre" required><br><br>
+    <input type="text" id="nombre" required /><br /><br />
     <label for="telefono">Teléfono:</label>
-    <input type="tel" id="telefono" required pattern="[0-9]+"><br><br>
+    <input type="tel" id="telefono" required pattern="[0-9]+" /><br /><br />
     <button onclick="iniciarChat()">Comenzar a chatear</button>
   </div>
 
@@ -43,9 +42,7 @@
     const normalizarTexto = (texto) => {
       return texto.toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")
-        .replace(/[^\w\s]/gi, "")
-        .replace(/\s+/g, " ")
+        .replace(/[\u0300-\u036f]/g, "")  // quitar tildes
         .trim();
     };
 
@@ -56,9 +53,9 @@
       respuestasBase = lineas.map(linea => {
         const [positivas, negativas, respuesta] = linea.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
         return {
-          positivas: positivas ? positivas.replace(/"/g, "").split(',').map(p => p.trim()) : [],
-          negativas: negativas ? negativas.replace(/"/g, "").split(',').map(n => n.trim()) : [],
-          respuesta: respuesta ? respuesta.trim().replace(/^"|"$/g, '') : ""
+          positivas: positivas ? positivas.replace(/"/g, "").split(",").map(p => p.trim()) : [],
+          negativas: negativas ? negativas.replace(/"/g, "").split(",").map(n => n.trim()) : [],
+          respuesta: respuesta ? respuesta.trim().replace(/^"|"$/g, "") : ""
         };
       });
     }
@@ -66,8 +63,16 @@
     function responder(pregunta) {
       const normalizada = normalizarTexto(pregunta);
       for (const entrada of respuestasBase) {
-        const matchPositivas = entrada.positivas.some(p => normalizada.includes(p));
-        const matchNegativas = entrada.negativas.some(n => normalizada.includes(n));
+        const matchPositivas = entrada.positivas.some(p => {
+          if (!p) return false;
+          const regex = new RegExp(`\\b${p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, "i"); // escapar caracteres especiales
+          return regex.test(normalizada);
+        });
+        const matchNegativas = entrada.negativas.some(n => {
+          if (!n) return false;
+          const regex = new RegExp(`\\b${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, "i");
+          return regex.test(normalizada);
+        });
         if (matchPositivas && !matchNegativas) {
           return entrada.respuesta.replaceAll("{{user}}", nombreUsuario);
         }
@@ -89,19 +94,19 @@
       document.getElementById("login").style.display = "none";
       document.getElementById("chatInterface").style.display = "block";
 
-      const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
+      const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>
+      Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='bot'>${bienvenida}</div>`;
     }
 
+    // Simular pregunta automática (clic en menú)
     function simularPregunta(texto) {
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='user'>${texto}</div>`;
       const respuesta = responder(texto);
       chatbox.innerHTML += `<div class='bot'>${respuesta}</div>`;
       chatbox.scrollTop = chatbox.scrollHeight;
-      document.getElementById("userInput").value = "";
-      document.getElementById("userInput").focus();
     }
 
     document.getElementById("userInput").addEventListener("keydown", function (e) {
@@ -117,7 +122,7 @@
       }
     });
 
-    // Cambia './respuestas_base.csv' a tu ruta real si es necesario
+    // Cargar CSV desde ruta local, cambiar ruta si es necesario
     cargarCSVDesdeGitHub('./respuestas_base.csv');
   </script>
 </body>
