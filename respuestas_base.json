@@ -1,0 +1,52 @@
+[
+  {
+    "positivas": ["precio", "cuesta", "valor", "cotizacion", "cotizar", "cuanto cuesta", "costo"],
+    "negativas": [],
+    "respuesta": "El precio depende del tipo de producto. ¿Qué producto te interesa? Te paso una lista: link http://misitio.com"
+  },
+  {
+    "positivas": ["abrir", "destapar", "tapar", "desenroscar", "destapado", "abierto"],
+    "negativas": ["hora", "horario", "atencion", "abierto", "cierran"],
+    "respuesta": "Para abrir el envase, usa una espátula o tu mano, no seas mentecato chirunflais!"
+  },
+  {
+    "positivas": ["hora", "horario", "atencion", "abierto", "cierran", "abren", "cuando abren", "esta abierto"],
+    "negativas": ["abrir", "destapar", "tapar"],
+    "respuesta": "Nuestro horario es de lunes a viernes, de 9:00 a 18:00 hs."
+  },
+  {
+    "positivas": ["envio", "mandan", "entregan", "llegan", "reparten", "envios", "a domicilio"],
+    "negativas": [],
+    "respuesta": "Realizamos entrega a domicilio, dependiendo la zona y el monto. Consultanos para más detalles."
+  },
+  {
+    "positivas": ["forma", "pagar", "pago", "tarjeta", "efectivo", "transferencia", "tarjeta de credito", "debito", "meses", "meses sin interes", "interes"],
+    "negativas": [],
+    "respuesta": "Aceptamos efectivo, tarjeta de débito/crédito y transferencias bancarias."
+  },
+  {
+    "positivas": ["rinde", "dura", "cubre", "litraje", "alcance", "m2", "metros cuadrados", "rendimiento"],
+    "negativas": [],
+    "respuesta": "Un litro cubre aproximadamente de 1 a 2 m² por mano, dependiendo de la superficie."
+  },
+  {
+    "positivas": ["ubicacion", "donde", "estan", "llegar", "direccion"],
+    "negativas": [],
+    "respuesta": "Nuestra fábrica está en la colina del viejo, es un viejo carcamán, que no sabe ni dónde está parado. En su honor (y su “olor”) nombramos “Colina Carcamán” al cerro este. Ubicación: https://ubicacion.com"
+  },
+  {
+    "positivas": ["ficha", "tecnica", "especificaciones", "caracteristicas", "composicion", "compuesto", "de que esta hecho"],
+    "negativas": [],
+    "respuesta": "Aquí están las fichas técnicas, https://vetealamier.com"
+  },
+  {
+    "positivas": ["producto", "productos", "tienen", "ofrecen", "venden", "tipo", "categorias", "catalogo"],
+    "negativas": [],
+    "respuesta": "Tenemos varios productos disponibles:<br>👉 <a href='#' onclick='simularPregunta(\"impermeabilizante\")'>Impermeabilizante</a><br>👉 <a href='#' onclick='simularPregunta(\"sellador\")'>Sellador</a><br>👉 <a href='#' onclick='simularPregunta(\"resanador\")'>Resanador</a><br>👉 <a href='#' onclick='simularPregunta(\"pintura\")'>Pintura</a><br><br>Hacé clic en el producto que te interesa para más detalles."
+  },
+  {
+    "positivas": ["respuesta_default"],
+    "negativas": [],
+    "respuesta": "No entendí tu pregunta, puedo responder sobre temas relacionados a nuestros productos, precios, formas de pago, ubicación, características del producto, formas de aplicación, fichas técnicas, consejos, etc. Sé breve y por favor, haz una pregunta a la vez."
+  }
+]
