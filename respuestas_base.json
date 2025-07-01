@@ -1,6 +1,6 @@
 [
   {
-    "positivas": ["precio", "cuesta", "valor", "cotizacion", "cotizar", "cuanto cuesta", "costo"],
+    "positivas": ["precio", "cuesta", "vale", "cotizacion", "cotizar", "cuanto cuesta", "costo", "valor"],
     "negativas": [],
     "respuesta": "El precio depende del tipo de producto. ¿Qué producto te interesa? Te paso una lista: link http://misitio.com"
   },
@@ -20,7 +20,7 @@
     "respuesta": "Realizamos entrega a domicilio, dependiendo la zona y el monto. Consultanos para más detalles."
   },
   {
-    "positivas": ["forma", "pagar", "pago", "tarjeta", "efectivo", "transferencia", "tarjeta de credito", "debito", "meses", "meses sin interes", "interes"],
+    "positivas": ["forma", "pagar", "pago", "tarjeta", "efectivo", "transferencia", "tarjeta de credito", "debito", "meses", "a meses", "meses sin interes", "interes"],
     "negativas": [],
     "respuesta": "Aceptamos efectivo, tarjeta de débito/crédito y transferencias bancarias."
   },
@@ -32,7 +32,7 @@
   {
     "positivas": ["ubicacion", "donde", "estan", "llegar", "direccion"],
     "negativas": [],
-    "respuesta": "Nuestra fábrica está en la colina del viejo, es un viejo carcamán, que no sabe ni dónde está parado. En su honor (y su “olor”) nombramos “Colina Carcamán” al cerro este. Ubicación: https://ubicacion.com"
+    "respuesta": "Nuestra fábrica está en la colina del viejo, es un viejo carcamán, que no sabe ni dónde está parado. En su honor (y su “olor”) nombramos 'Colina Carcamán' al cerro este. Ubicación: https://ubicacion.com"
   },
   {
     "positivas": ["ficha", "tecnica", "especificaciones", "caracteristicas", "composicion", "compuesto", "de que esta hecho"],
@@ -40,9 +40,29 @@
     "respuesta": "Aquí están las fichas técnicas, https://vetealamier.com"
   },
   {
-    "positivas": ["producto", "productos", "tienen", "ofrecen", "venden", "tipo", "categorias", "catalogo"],
+    "positivas": ["producto", "productos", "tienen", "ofrecen", "venden", "tipo", "categorias", "catálogo"],
     "negativas": [],
     "respuesta": "Tenemos varios productos disponibles:<br>👉 <a href='#' onclick='simularPregunta(\"impermeabilizante\")'>Impermeabilizante</a><br>👉 <a href='#' onclick='simularPregunta(\"sellador\")'>Sellador</a><br>👉 <a href='#' onclick='simularPregunta(\"resanador\")'>Resanador</a><br>👉 <a href='#' onclick='simularPregunta(\"pintura\")'>Pintura</a><br><br>Hacé clic en el producto que te interesa para más detalles."
+  },
+  {
+    "positivas": ["impermeabilizante"],
+    "negativas": [],
+    "respuesta": "Nuestros impermeabilizantes son acrílicos, elastoméricos y cementosos. ¿Para qué superficie lo necesitas?"
+  },
+  {
+    "positivas": ["sellador"],
+    "negativas": [],
+    "respuesta": "Tenemos selladores de juntas, de poliuretano y acrílicos. Ideales para techos, muros o pisos."
+  },
+  {
+    "positivas": ["resanador"],
+    "negativas": [],
+    "respuesta": "El resanador que ofrecemos es plástico, flexible y con gran adherencia. Ideal para grietas y fisuras."
+  },
+  {
+    "positivas": ["pintura"],
+    "negativas": [],
+    "respuesta": "Contamos con pinturas para interior, exterior y alta resistencia. ¿De qué tipo estás buscando?"
   },
   {
     "positivas": ["respuesta_default"],
