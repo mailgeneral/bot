@@ -16,7 +16,7 @@
       max-width: 600px; background: #fff; padding: 20px; border: 1px solid #ccc;
     }
     #userInput { width: 100%; padding: 10px; }
-    a { color: green; cursor: pointer; text-decoration: underline; }
+    a { color: blue; cursor: pointer; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -39,40 +39,32 @@
     let respuestasBase = [];
     let nombreUsuario = "";
 
+    // Normaliza texto para comparación
     const normalizarTexto = (texto) => {
       return texto.toLowerCase()
         .normalize("NFD")
-        .replace(/[\u0300-\u036f]/g, "")  // quitar tildes
+        .replace(/[\u0300-\u036f]/g, "")
+        .replace(/[^\w\s]/gi, "")
+        .replace(/\s+/g, " ")
         .trim();
     };
 
-    async function cargarCSVDesdeGitHub(url) {
-      const response = await fetch(url);
-      const data = await response.text();
-      const lineas = data.split("\n").slice(1); // quitar cabecera
-      respuestasBase = lineas.map(linea => {
-        const [positivas, negativas, respuesta] = linea.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
-        return {
-          positivas: positivas ? positivas.replace(/"/g, "").split(",").map(p => p.trim()) : [],
-          negativas: negativas ? negativas.replace(/"/g, "").split(",").map(n => n.trim()) : [],
-          respuesta: respuesta ? respuesta.trim().replace(/^"|"$/g, "") : ""
-        };
-      });
+    // Carga JSON en lugar de CSV
+    async function cargarRespuestasJSON(url) {
+      try {
+        const response = await fetch(url);
+        respuestasBase = await response.json();
+      } catch (error) {
+        console.error("Error cargando respuestas JSON:", error);
+      }
     }
 
+    // Función para responder según entrada del usuario
     function responder(pregunta) {
       const normalizada = normalizarTexto(pregunta);
       for (const entrada of respuestasBase) {
-        const matchPositivas = entrada.positivas.some(p => {
-          if (!p) return false;
-          const regex = new RegExp(`\\b${p.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, "i"); // escapar caracteres especiales
-          return regex.test(normalizada);
-        });
-        const matchNegativas = entrada.negativas.some(n => {
-          if (!n) return false;
-          const regex = new RegExp(`\\b${n.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\\b`, "i");
-          return regex.test(normalizada);
-        });
+        const matchPositivas = entrada.positivas.some(p => normalizada.includes(normalizarTexto(p)));
+        const matchNegativas = entrada.negativas.some(n => normalizada.includes(normalizarTexto(n)));
         if (matchPositivas && !matchNegativas) {
           return entrada.respuesta.replaceAll("{{user}}", nombreUsuario);
         }
@@ -81,6 +73,7 @@
       return fallback ? fallback.respuesta.replaceAll("{{user}}", nombreUsuario) : "";
     }
 
+    // Inicia chat validando datos y muestra interfaz
     function iniciarChat() {
       const nombre = document.getElementById("nombre").value.trim();
       const telefono = document.getElementById("telefono").value.trim();
@@ -94,13 +87,12 @@
       document.getElementById("login").style.display = "none";
       document.getElementById("chatInterface").style.display = "block";
 
-      const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>
-      Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
+      const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='bot'>${bienvenida}</div>`;
     }
 
-    // Simular pregunta automática (clic en menú)
+    // Simula una pregunta para los links clickeables
     function simularPregunta(texto) {
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='user'>${texto}</div>`;
@@ -109,6 +101,7 @@
       chatbox.scrollTop = chatbox.scrollHeight;
     }
 
+    // Evento para enter en input de usuario
     document.getElementById("userInput").addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
         const input = e.target.value;
@@ -122,8 +115,8 @@
       }
     });
 
-    // Cargar CSV desde ruta local, cambiar ruta si es necesario
-    cargarCSVDesdeGitHub('./respuestas_base.csv');
+    // Carga las respuestas del archivo JSON
+    cargarRespuestasJSON('./respuestas_base.json');
   </script>
 </body>
 </html>
