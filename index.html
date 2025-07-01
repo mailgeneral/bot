@@ -5,40 +5,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bot de Consulta</title>
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f9f9f9;
-      padding: 20px;
-    }
+    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
     #chatbox {
-      border: 1px solid #ccc;
-      padding: 10px;
-      max-width: 600px;
-      background: #fff;
-      height: 400px;
-      overflow-y: auto;
-      margin-bottom: 10px;
+      border: 1px solid #ccc; padding: 10px; max-width: 600px;
+      background: #fff; height: 400px; overflow-y: auto; margin-bottom: 10px;
     }
-    .user {
-      text-align: right;
-      color: blue;
-      margin: 10px 0;
-    }
-    .bot {
-      text-align: left;
-      color: green;
-      margin: 10px 0;
-    }
+    .user { text-align: right; color: blue; margin: 10px 0; }
+    .bot { text-align: left; color: green; margin: 10px 0; }
     #login {
-      max-width: 600px;
-      background: #fff;
-      padding: 20px;
-      border: 1px solid #ccc;
+      max-width: 600px; background: #fff; padding: 20px; border: 1px solid #ccc;
     }
-    #userInput {
-      width: 100%;
-      padding: 10px;
-    }
+    #userInput { width: 100%; padding: 10px; }
   </style>
 </head>
 <body>
@@ -66,6 +43,7 @@
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/[^\w\s]/gi, "")
+        .replace(/\s+/g, " ")
         .trim();
     };
 
@@ -76,15 +54,11 @@
       respuestasBase = lineas.map(linea => {
         const [positivas, negativas, respuesta] = linea.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
         return {
-          positivas: positivas ? positivas.replace(/"/g, '').split(',').map(p => p.trim()) : [],
-          negativas: negativas ? negativas.replace(/"/g, '').split(',').map(n => n.trim()) : [],
-          respuesta: respuesta ? respuesta.replace(/"/g, '').trim() : ""
+          positivas: positivas ? positivas.replace(/"/g, "").split(',').map(p => p.trim()) : [],
+          negativas: negativas ? negativas.replace(/"/g, "").split(',').map(n => n.trim()) : [],
+          respuesta: respuesta ? respuesta.trim().replace(/^"|"$/g, '') : ""
         };
       });
-    }
-
-    function hacerLinksClickeables(texto) {
-      return texto.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
     }
 
     function responder(pregunta) {
@@ -93,33 +67,44 @@
         const matchPositivas = entrada.positivas.some(p => normalizada.includes(p));
         const matchNegativas = entrada.negativas.some(n => normalizada.includes(n));
         if (matchPositivas && !matchNegativas) {
-          return hacerLinksClickeables(entrada.respuesta.replace(/{{user}}/gi, nombreUsuario));
+          return entrada.respuesta.replaceAll("{{user}}", nombreUsuario);
         }
       }
       const fallback = respuestasBase.find(r => r.positivas.includes("respuesta_default"));
-      return fallback ? hacerLinksClickeables(fallback.respuesta.replace(/{{user}}/gi, nombreUsuario)) : "";
+      return fallback ? fallback.respuesta.replaceAll("{{user}}", nombreUsuario) : "";
     }
 
     function iniciarChat() {
       const nombre = document.getElementById("nombre").value.trim();
       const telefono = document.getElementById("telefono").value.trim();
 
-      if (!nombre || !telefono.match(/^\d+$/)) {
-        alert("Por favor ingresa un nombre y teléfono válido.");
+      if (!nombre || !telefono.match(/^[0-9]+$/)) {
+        alert("Por favor, ingresá un nombre válido y un teléfono numérico.");
         return;
       }
 
       nombreUsuario = nombre;
       document.getElementById("login").style.display = "none";
       document.getElementById("chatInterface").style.display = "block";
+
+      const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
       const chatbox = document.getElementById("chatbox");
-      chatbox.innerHTML += `<div class='bot'>Hola <strong>${nombreUsuario}</strong>, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>`;
+      chatbox.innerHTML += `<div class='bot'>${bienvenida}</div>`;
+    }
+
+    // SIMULADOR DE PREGUNTA AUTOMÁTICA (ej: clic en productos)
+    function simularPregunta(texto) {
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class='user'>${texto}</div>`;
+      const respuesta = responder(texto);
+      chatbox.innerHTML += `<div class='bot'>${respuesta}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
     }
 
     document.getElementById("userInput").addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
-        const input = e.target.value.trim();
-        if (!input) return;
+        const input = e.target.value;
+        if (!input.trim()) return;
         const chatbox = document.getElementById("chatbox");
         chatbox.innerHTML += `<div class='user'>${input}</div>`;
         const respuesta = responder(input);
@@ -133,6 +118,5 @@
   </script>
 </body>
 </html>
-
 
 
