@@ -2,91 +2,124 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Bot de Consulta</title>
   <style>
-    body { font-family: sans-serif; background: #f9f9f9; padding: 20px; }
-    #chatbox { border: 1px solid #ccc; padding: 10px; max-width: 600px; background: #fff; height: 400px; overflow-y: auto; }
-    .user, .bot { margin: 10px 0; }
-    .user { text-align: right; color: blue; }
-    .bot { text-align: left; color: green; }
+    body {
+      font-family: sans-serif;
+      background: #f9f9f9;
+      padding: 20px;
+    }
+    #chatbox {
+      border: 1px solid #ccc;
+      padding: 10px;
+      max-width: 600px;
+      background: #fff;
+      height: 400px;
+      overflow-y: auto;
+      margin-bottom: 10px;
+    }
+    .user {
+      text-align: right;
+      color: blue;
+      margin: 10px 0;
+    }
+    .bot {
+      text-align: left;
+      color: green;
+      margin: 10px 0;
+    }
+    #login {
+      max-width: 600px;
+      background: #fff;
+      padding: 20px;
+      border: 1px solid #ccc;
+    }
+    #userInput {
+      width: 100%;
+      padding: 10px;
+    }
   </style>
 </head>
 <body>
   <h2>Chatbot de Consultas</h2>
-  <div id="chatbox"></div>
-  <input type="text" id="userInput" placeholder="Escribí tu pregunta..." style="width: 100%; padding: 10px;" autocomplete="off"/>
+
+  <div id="login">
+    <label for="nombre">Nombre:</label>
+    <input type="text" id="nombre" required><br><br>
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" id="telefono" required pattern="[0-9]+"><br><br>
+    <button onclick="iniciarChat()">Comenzar a chatear</button>
+  </div>
+
+  <div id="chatInterface" style="display:none;">
+    <div id="chatbox"></div>
+    <input type="text" id="userInput" maxlength="128" placeholder="Escribí tu pregunta..." />
+  </div>
 
   <script>
     let respuestasBase = [];
+    let nombreUsuario = "";
 
-    // Normalizar texto: minusculas, quitar acentos, signos raros, espacios
     const normalizarTexto = (texto) => {
       return texto.toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g, "")
         .replace(/[^\w\s]/gi, "")
-        .replace(/\s+/g, " ")
         .trim();
     };
 
-    // Parsear línea CSV respetando comillas y comas dentro de texto
-    function parseCSVLine(line) {
-      const result = [];
-      let current = "";
-      let insideQuotes = false;
-
-      for (let i = 0; i < line.length; i++) {
-        const char = line[i];
-        if (char === '"') {
-          insideQuotes = !insideQuotes;
-          continue;
-        }
-        if (char === ',' && !insideQuotes) {
-          result.push(current);
-          current = "";
-        } else {
-          current += char;
-        }
-      }
-      result.push(current);
-      return result;
-    }
-
-    // Cargar CSV desde URL (GitHub u otro)
     async function cargarCSVDesdeGitHub(url) {
       const response = await fetch(url);
       const data = await response.text();
-      const lineas = data.trim().split('\n').slice(1); // quitar encabezado
+      const lineas = data.split("\n").slice(1); // quitar cabecera
       respuestasBase = lineas.map(linea => {
-        const [positivas, negativas, respuesta] = parseCSVLine(linea);
+        const [positivas, negativas, respuesta] = linea.split(/,(?=(?:[^"]*"[^"]*")*[^"]*$)/);
         return {
-          positivas: positivas ? positivas.split(',').map(p => p.trim().toLowerCase()) : [],
-          negativas: negativas ? negativas.split(',').map(n => n.trim().toLowerCase()) : [],
-          respuesta: respuesta ? respuesta.trim() : ""
+          positivas: positivas ? positivas.replace(/"/g, '').split(',').map(p => p.trim()) : [],
+          negativas: negativas ? negativas.replace(/"/g, '').split(',').map(n => n.trim()) : [],
+          respuesta: respuesta ? respuesta.replace(/"/g, '').trim() : ""
         };
       });
     }
 
-    // Función para responder basado en la base de datos
+    function hacerLinksClickeables(texto) {
+      return texto.replace(/(https?:\/\/[^\s]+)/g, '<a href="$1" target="_blank">$1</a>');
+    }
+
     function responder(pregunta) {
       const normalizada = normalizarTexto(pregunta);
       for (const entrada of respuestasBase) {
-        const tienePositiva = entrada.positivas.some(p => normalizada.includes(p));
-        const tieneNegativa = entrada.negativas.some(n => normalizada.includes(n));
-        if (tienePositiva && !tieneNegativa) {
-          return entrada.respuesta;
+        const matchPositivas = entrada.positivas.some(p => normalizada.includes(p));
+        const matchNegativas = entrada.negativas.some(n => normalizada.includes(n));
+        if (matchPositivas && !matchNegativas) {
+          return hacerLinksClickeables(entrada.respuesta.replace(/{{user}}/gi, nombreUsuario));
         }
       }
       const fallback = respuestasBase.find(r => r.positivas.includes("respuesta_default"));
-      return fallback ? fallback.respuesta : "";
+      return fallback ? hacerLinksClickeables(fallback.respuesta.replace(/{{user}}/gi, nombreUsuario)) : "";
     }
 
-    // Evento enter para enviar pregunta
+    function iniciarChat() {
+      const nombre = document.getElementById("nombre").value.trim();
+      const telefono = document.getElementById("telefono").value.trim();
+
+      if (!nombre || !telefono.match(/^\d+$/)) {
+        alert("Por favor ingresa un nombre y teléfono válido.");
+        return;
+      }
+
+      nombreUsuario = nombre;
+      document.getElementById("login").style.display = "none";
+      document.getElementById("chatInterface").style.display = "block";
+      const chatbox = document.getElementById("chatbox");
+      chatbox.innerHTML += `<div class='bot'>Hola <strong>${nombreUsuario}</strong>, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?</div>`;
+    }
+
     document.getElementById("userInput").addEventListener("keydown", function (e) {
       if (e.key === "Enter") {
-        const input = e.target.value;
-        if (!input.trim()) return;
+        const input = e.target.value.trim();
+        if (!input) return;
         const chatbox = document.getElementById("chatbox");
         chatbox.innerHTML += `<div class='user'>${input}</div>`;
         const respuesta = responder(input);
@@ -96,10 +129,10 @@
       }
     });
 
-    // Cambia esta URL a donde tengas tu CSV en GitHub o servidor
-    cargarCSVDesdeGitHub('respuestas_base.csv');
+    cargarCSVDesdeGitHub('./respuestas_base.csv');
   </script>
 </body>
 </html>
+
 
 
