@@ -9,6 +9,7 @@
     #chatbox {
       border: 1px solid #ccc; padding: 10px; max-width: 600px;
       background: #fff; height: 400px; overflow-y: auto; margin-bottom: 10px;
+      white-space: pre-wrap; /* para que respete saltos y espacios */
     }
     .user { text-align: right; color: blue; margin: 10px 0; }
     .bot { text-align: left; color: green; margin: 10px 0; }
@@ -16,6 +17,7 @@
       max-width: 600px; background: #fff; padding: 20px; border: 1px solid #ccc;
     }
     #userInput { width: 100%; padding: 10px; }
+    a { color: green; cursor: pointer; text-decoration: underline; }
   </style>
 </head>
 <body>
@@ -92,13 +94,14 @@
       chatbox.innerHTML += `<div class='bot'>${bienvenida}</div>`;
     }
 
-    // SIMULADOR DE PREGUNTA AUTOMÁTICA (ej: clic en productos)
     function simularPregunta(texto) {
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='user'>${texto}</div>`;
       const respuesta = responder(texto);
       chatbox.innerHTML += `<div class='bot'>${respuesta}</div>`;
       chatbox.scrollTop = chatbox.scrollHeight;
+      document.getElementById("userInput").value = "";
+      document.getElementById("userInput").focus();
     }
 
     document.getElementById("userInput").addEventListener("keydown", function (e) {
@@ -114,9 +117,8 @@
       }
     });
 
+    // Cambia './respuestas_base.csv' a tu ruta real si es necesario
     cargarCSVDesdeGitHub('./respuestas_base.csv');
   </script>
 </body>
 </html>
-
-
