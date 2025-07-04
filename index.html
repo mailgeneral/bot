@@ -60,14 +60,31 @@
     }
 
     function responder(pregunta) {
+      if (!respuestasBase || respuestasBase.length === 0) {
+        return "Estoy cargando la información... Intentá de nuevo en unos segundos.";
+      }
+
       const normalizada = normalizarTexto(pregunta);
+
+      let mejorCoincidencia = null;
+      let maxCoincidencias = 0;
+
       for (const entrada of respuestasBase) {
-        const matchPositivas = entrada.positivas.some(p => normalizada.includes(p));
-        const matchNegativas = entrada.negativas.some(n => normalizada.includes(n));
-        if (matchPositivas && !matchNegativas) {
-          return entrada.respuesta.replaceAll("{{user}}", nombreUsuario);
+        const coincidenciasPositivas = entrada.positivas.filter(p => normalizada.includes(p)).length;
+        const tieneNegativa = entrada.negativas.some(n => normalizada.includes(n));
+
+        if (coincidenciasPositivas > 0 && !tieneNegativa) {
+          if (coincidenciasPositivas > maxCoincidencias) {
+            mejorCoincidencia = entrada;
+            maxCoincidencias = coincidenciasPositivas;
+          }
         }
       }
+
+      if (mejorCoincidencia) {
+        return mejorCoincidencia.respuesta.replaceAll("{{user}}", nombreUsuario);
+      }
+
       const fallback = respuestasBase.find(r => r.positivas.includes("respuesta_default"));
       return fallback ? fallback.respuesta.replaceAll("{{user}}", nombreUsuario) : "";
     }
@@ -88,6 +105,7 @@
       const bienvenida = `Hola ${nombreUsuario}, soy tu asistente virtual. ¿En qué puedo ayudarte hoy?<br>Puedo asistirte con precios, productos, ubicación, horarios, listas, consejos... Solo escribí tu consulta.`;
       const chatbox = document.getElementById("chatbox");
       chatbox.innerHTML += `<div class='bot'>${hacerLinksClickeables(bienvenida)}</div>`;
+      chatbox.scrollTop = chatbox.scrollHeight;
     }
 
     function simularPregunta(texto) {
@@ -116,3 +134,4 @@
   </script>
 </body>
 </html>
+
