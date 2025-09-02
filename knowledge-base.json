@@ -1,0 +1,375 @@
+{
+  "knowledgeBase": {
+    "informacionGeneral": {
+      "nombreEmpresa": "Imperdellanta",
+      "descripcion": "Empresa orgullosamente Poblana dedicada a la fabricación y distribución de impermeabilizantes y pinturas.",
+      "compromiso": "Comprometida con brindar la mayor calidad en impermeabilizantes y pinturas al menor precio, cuidando el medio ambiente y generando oportunidades de negocio inigualables.",
+      "mision": "Llegar al mercado de recursos limitados proporcionando un producto de la mejor calidad y bajo precio, con el objeto de ofrecer al consumidor final la oportunidad de adquirir un buen impermeabilizante que no signifique mayor inversión.",
+      "vision": [
+        "Posicionarnos de un mercado mayoritario que a corto plazo reconozca e identifique nuestra marca como un producto de excelencia.",
+        "Consolidar a la empresa y lograr su expansión dentro del mercado de impermeabilizantes con el objeto principal de colaborar a la extinción del desperdicio del caucho de llanta dándole un buen uso y disminuyendo con esto la contaminación ambiental.",
+        "Buscar que el consumidor final quede convencido de que aparte de adquirir un buen producto está colaborando para disminuir el problema tan grave que se presenta al día de hoy llamado Contaminación."
+      ],
+      "valores": [
+        "Calidad a bajo precio",
+        "Cuidado del medio ambiente",
+        "Generación de oportunidades de negocio",
+        "Innovación y sustentabilidad"
+      ],
+      "ubicacionDatosContacto": {
+        "direccion": "Calle Uva 27-4, Colonia Lomas de Chapultepec, 72350, Puebla, Pue.",
+        "telefono": "+522228496995",
+        "email": "corporativoimperdellanta@gmail.com"
+      },
+      "horariosAtencion": [
+        {
+          "dias": "Lunes a Viernes",
+          "horario": "9:00 - 17:00"
+        },
+        {
+          "dias": "Sábado",
+          "horario": "9:00 - 13:00 (Nota: una fuente menciona de 10 AM a 2 PM)"
+        }
+      ],
+      "compromisoAmbiental": {
+        "origen": "Empresa orgullosamente Poblana.",
+        "descripcion": "Fabricamos impermeabilizantes con caucho reciclado de llanta y fibra celulosa con la finalidad de crear un producto ecológico, sustentable, y amigable con el medio ambiente.",
+        "tecnologia": "Empleando tecnología de punta 100% Mexicana."
+      }
+    },
+    "productosPrincipales": [
+      {
+        "nombre": "Impermeabilizante Imperdellanta",
+        "descripcion": "Producto elastomérico fabricado con materias primas seleccionadas e importadas, reforzado con fibra celulosa y una carga de caucho de llanta procesado. Protege el patrimonio de lluvias y filtraciones en muros y techos.",
+        "caracteristicas": [
+          "Fabricado con hule de llanta reciclada y adicionado con celulosa.",
+          "Fibratado, no requiere malla de refuerzo.",
+          "Reduce el paso del calor, frío y ruidos.",
+          "Repele agua y humedad.",
+          "Resistente a cambios climatológicos y condiciones severas de humedad y lluvia.",
+          "Alta resistencia a los rayos UV, a la humedad y a los hongos.",
+          "Secado rápido y fácil aplicación.",
+          "Elongación del 200%.",
+          "Ecológico y no contiene materiales tóxicos.",
+          "Vida útil de 3 años, con mantenimiento se puede extender hasta 12 años o más."
+        ],
+        "uso": "Para impermeabilizar losas de concreto, block, tabique, tejas y lámina de asbesto.",
+        "aplicacion": {
+          "preparacion": "El producto viene listo para su aplicación, no requiere dilución.",
+          "herramientas": "Brocha, rodillo o cepillo de ixtle.",
+          "rendimiento": "1 metro cuadrado por litro, aplicando dos capas."
+        },
+        "presentaciones": [
+          "Cubeta de 19 Litros",
+          "Tonel de 190 Litros"
+        ],
+        "colores": {
+          "linea": [
+            "Terracota",
+            "Blanco"
+          ],
+          "especiales": "Verde y Negro, sobre pedido mínimo de 10 cubetas o un tonel de 190 litros."
+        }
+      },
+      {
+        "nombre": "Resanador RS-MAX",
+        "descripcion": "Pasta elaborada con resinas especiales, caucho reciclado y materias primas no tóxicas, diseñada para resanar grietas y fisuras, ofreciendo máxima resistencia y elasticidad.",
+        "caracteristicas": [
+          "Soluciona goteras y filtraciones de manera definitiva.",
+          "Alta adherencia y elasticidad.",
+          "Repele el agua y la humedad.",
+          "Gran resistencia a los rayos UV, excelente resistencia a la humedad y hongos.",
+          "Durabilidad de 8 a 10 años."
+        ],
+        "uso": "Para cuarteaduras, grietas y fisuras en superficies de cemento, mamposterías nuevas de yeso y estuco, metal, asbesto, madera, policarbonato, plásticos y más.",
+        "aplicacion": {
+          "preparacion": "Mezclar hasta que esté completamente homogéneo.",
+          "herramientas": "Espátula o llana.",
+          "proceso": "Aplicar con espátula, se puede colocar malla de fibra de vidrio para mejor resultado, seguido de Sellador SELLAPLUS EX y dos capas de Imperdellanta."
+        },
+        "presentaciones": [
+          "Bote de 1 Litro (incluye malla de regalo)",
+          "Cubeta de 19 Litros"
+        ],
+        "colores": [
+          {
+            "color": "Terracota",
+            "presentaciones": [
+              "Bote de 1 L",
+              "Cubeta de 19 L"
+            ]
+          },
+          {
+            "color": "Blanco",
+            "presentaciones": [
+              "Cubeta de 19 L"
+            ]
+          }
+        ]
+      },
+      {
+        "nombre": "Sellador SELLAPLUS-EX",
+        "descripcion": "Producto ecológico diseñado para usarse en conjunto con el impermeabilizante Imperdellanta. Está reforzado con resinas acrílicas para tapar el poro de la losa y favorecer la adherencia.",
+        "caracteristicas": [
+          "Aumenta la adherencia, el rendimiento y la durabilidad del impermeabilizante.",
+          "Sella y cierra los poros de la superficie.",
+          "Secado rápido.",
+          "Color blanco translúcido."
+        ],
+        "uso": "Para sellar superficies de cemento, mamposterías nuevas de yeso, estuco, asbesto, lámina, madera y policarbonato, entre otros.",
+        "aplicacion": {
+          "preparacion": "Es concentrado. Se diluye en 6 o 7 partes de agua por una de sellador.",
+          "herramientas": "Brocha, rodillo o cepillo de ixtle.",
+          "rendimiento": "Aproximadamente 38 metros cuadrados por litro ya mezclado, dependiendo de la porosidad."
+        },
+        "presentaciones": [
+          "Botella de 1 Litro",
+          "Cubeta de 19 Litros"
+        ]
+      },
+      {
+        "nombre": "Pintura Liderpint",
+        "descripcion": "Pintura vinil-acrílica económica fabricada con materias primas de alta calidad, ideal para obras y cuidado de la economía.",
+        "caracteristicas": [
+          "Acabado mate.",
+          "Económica y rendidora.",
+          "Fácil aplicación.",
+          "Garantía de 3 años en interiores y 1.5 años en exteriores."
+        ],
+        "uso": "Ideal para interiores en plafones, muros, fachadas, sobre superficies de yeso previamente sellados, tabique, mampostería y tabla roca.",
+        "aplicacion": {
+          "preparacion": "Agitar hasta que esté completamente homogénea.",
+          "herramientas": "Brocha, cepillo, rodillo o equipo airless.",
+          "rendimiento": "Cubre de 70 a 90 m2 por cubeta en superficies planas."
+        },
+        "presentaciones": [
+          "Cubeta de 19 Litros",
+          "Tambor de 200 Litros"
+        ],
+        "colores": {
+          "linea": [
+            "Blanco"
+          ],
+          "especiales": "Disponibles a partir de 10 cubetas."
+        }
+      }
+    ],
+    "otrasLineasPinturas": [
+      {
+        "nombre": "Pintura Vinil-Acrílica MAXIM 400",
+        "descripcion": "Pintura vinil-acrílica de alta calidad, fácil aplicación y excelente rendimiento. Fabricada con materias primas de alta calidad para garantizar su desempeño.",
+        "caracteristicas": [
+          "Acabado satinado.",
+          "Amplia resistencia a los rayos UV y al intemperismo.",
+          "Excelente poder cubriente.",
+          "Alta lavabilidad (hasta 8000 ciclos)."
+        ],
+        "uso": "Recomendada para interiores y exteriores en casas habitación y edificaciones en general. Se puede aplicar sobre plafones, muros, fachadas y superficies de yeso previamente selladas, tabique y mampostería.",
+        "aplicacion": {
+          "preparacionSuperficie": "La superficie debe estar limpia, seca, libre de polvo y grasa. Si hay pintura envejecida, se deben retirar las escamas y cepillar. Las superficies nuevas deben haber curado por lo menos 30 días antes de pintar.",
+          "preparacionProducto": "Agitar hasta que esté completamente homogénea. Se puede diluir con agua limpia hasta un máximo del 10% al 15%.",
+          "herramientas": "Brocha, cepillo, rodillo o equipo airless.",
+          "rendimiento": "10 a 11 metros cuadrados por litro, dependiendo de la porosidad de la superficie y del método de aplicación."
+        },
+        "presentaciones": [
+          "Cubeta de 19 litros",
+          "Tambor de 190 litros"
+        ],
+        "especificacionesTecnicas": {
+          "viscosidad": "100-115 KU",
+          "densidad": "1.3-1.35 gr/cc",
+          "porcentajeSolidosPeso": "50-52%",
+          "porcentajeSolidosVolumen": "35-37%",
+          "adherencia": "100%",
+          "lavabilidad": "Hasta 8000 ciclos"
+        }
+      },
+      {
+        "nombre": "Pintura Vinil-Acrílica OLYMPUS 300",
+        "descripcion": "Pintura vinil-acrílica de alto desempeño, fabricada con materias primas de la más alta calidad. Ofrece fácil aplicación, buen rendimiento y excelente poder cubriente.",
+        "caracteristicas": [
+          "Acabado semimate.",
+          "Gran resistencia a los rayos UV y al intemperismo."
+        ],
+        "uso": "Recomendable para interiores y exteriores en casas habitación y edificaciones en general. Ideal para plafones, muros, fachadas, y sobre superficies de yeso previamente selladas, tabique y mampostería.",
+        "aplicacion": {
+          "preparacionSuperficie": "La superficie debe estar limpia, seca, libre de polvo y grasa. En superficies con pintura envejecida, retirar escamas y cepillar. Las superficies nuevas deben haber curado por lo menos 30 días.",
+          "preparacionProducto": "Agitar hasta que esté homogénea. Diluir con agua limpia hasta un 10% máximo.",
+          "herramientas": "Brocha, cepillo, rodillo o equipo airless.",
+          "rendimiento": "7 a 9 metros cuadrados por litro, dependiendo de la porosidad de la superficie y del método de aplicación."
+        },
+        "presentaciones": [
+          "Cubeta de 19 litros",
+          "Tambor de 190 litros"
+        ],
+        "especificacionesTecnicas": {
+          "viscosidad": "100-115 KU",
+          "densidad": "1.4-1.45 gr/cc",
+          "porcentajeSolidosPeso": "53-54%",
+          "porcentajeSolidosVolumen": "34-35%",
+          "adherencia": "100%",
+          "lavabilidad": "Hasta 4000 ciclos"
+        }
+      }
+    ],
+    "modelosDistribucion": {
+      "descripcionGeneral": "Imperdellanta es una empresa poblana que busca generar oportunidades de negocio inigualables, ofreciendo la mayor calidad en impermeabilizantes y pinturas al menor precio. Cuenta con una red de más de 100 puntos de venta en constante crecimiento.",
+      "modelos": [
+        {
+          "nombre": "Punto de Venta",
+          "descripcion": "Modelo de negocio para comercializar impermeabilizante Imperdellanta y pintura Liderpint en un local o negocio existente.",
+          "requisitos": [
+            "Contar con un local comercial con buena ubicación.",
+            "Venta de productos afines al giro.",
+            "Una mínima inversión inicial."
+          ],
+          "inversionInicial": "Desde $5,970 IVA incluido.",
+          "paquetesInicio": [
+            {
+              "nombre": "Paquete 1",
+              "contenido": [
+                "10 cubetas Imperdellanta 19 L",
+                "3 Resanadores RS-MAX 1 L",
+                "3 Selladores SELLAPLUS-EX 1 L"
+              ]
+            },
+            {
+              "nombre": "Paquete 2",
+              "contenido": [
+                "50 cubetas Imperdellanta 19 L",
+                "10 Resanadores RS-MAX 1 L",
+                "10 Selladores SELLAPLUS-EX 1 L"
+              ]
+            }
+          ],
+          "beneficios": [
+            "Alta rentabilidad con mínima inversión.",
+            "Productos de alta calidad, bajo costo y alta demanda.",
+            "Capacitación en aplicación y características de los productos.",
+            "Apoyo publicitario en Redes Sociales.",
+            "Material promocional impreso y digital descargable.",
+            "Inclusión del negocio en el mapa de distribuidores de la empresa.",
+            "Ofertas continuas.",
+            "Acceso a contenido exclusivo para puntos de venta."
+          ]
+        },
+        {
+          "nombre": "Aplicador",
+          "descripcion": "Modelo de negocio dirigido a profesionales que se dedican a la construcción, pintura, impermeabilización, negocio inmobiliario, arquitectura y afines.",
+          "requisitos": [
+            "Ser pintor o aplicador.",
+            "No requiere exclusividad."
+          ],
+          "beneficios": [
+            "Descuentos especiales por volumen de compra.",
+            "Obtención de productos directo de fábrica, lo que representa una ventaja en los presupuestos.",
+            "Capacitación constante y asesoría técnica para la correcta aplicación.",
+            "Acceso a una zona exclusiva para clientes en la web.",
+            "Uso de productos de calidad garantizada (Imperdellanta y Liderpint) para obtener trabajos de calidad y la recomendación de clientes."
+          ]
+        },
+        {
+          "nombre": "Gran Distribuidor",
+          "descripcion": "Modelo para comercializar grandes volúmenes de impermeabilizantes y pinturas en una zona amplia.",
+          "requisitos": [
+            "Contar con un local comercial.",
+            "Venta de productos afines.",
+            "Capacidad y logística para desplazar y distribuir grandes volúmenes.",
+            "Firma de contrato."
+          ]
+        }
+      ],
+      "soporteGeneralDistribuidores": [
+        "Asesoramiento para la colocación del producto.",
+        "Capacitación.",
+        "Suministro de material publicitario.",
+        "Acceso a listas de precios actualizadas para puntos de venta y compras mayoristas."
+      ]
+    },
+    "recursosHerramientas": {
+      "generales": {
+        "titulo": "Recursos y Herramientas Generales (Para Clientes y Distribuidores)",
+        "descripcion": "Imperdellanta proporciona diversas herramientas y canales de información para todos sus públicos.",
+        "herramientas": [
+          {
+            "nombre": "Calculadora de Materiales",
+            "detalle": "Herramienta en el sitio web para estimar la cantidad aproximada de material necesario para un proyecto. Las cantidades pueden variar según las características de la superficie."
+          },
+          {
+            "nombre": "Fichas Técnicas Descargables",
+            "detalle": "Disponibilidad para descargar las fichas técnicas de los productos principales: Impermeabilizante Imperdellanta, Resanador RS-MAX, Sellador SELLAPLUS-EX y Pintura Liderpint."
+          },
+          {
+            "nombre": "Contacto Directo",
+            "detalle": "La empresa puede ser contactada a través de su dirección física en Puebla, teléfono, WhatsApp y correo electrónico, con horarios de atención definidos de lunes a sábado."
+          },
+          {
+            "nombre": "Blog Informativo",
+            "detalle": "El sitio web cuenta con un blog que ofrece artículos sobre los productos y sistemas de impermeabilización."
+          },
+          {
+            "nombre": "Mapa de Puntos de Venta",
+            "detalle": "Un mapa interactivo en Google Maps permite a los clientes finales localizar los puntos de venta de Imperdellanta."
+          }
+        ]
+      },
+      "especificosDistribuidores": {
+        "titulo": "Recursos Específicos para Distribuidores y Aplicadores",
+        "descripcion": "Imperdellanta ha desarrollado un sistema de soporte robusto para su red de socios comerciales, que incluye Puntos de Venta, Aplicadores y Grandes Distribuidores.",
+        "herramientas": [
+          {
+            "nombre": "Acceso a Contenido Exclusivo",
+            "detalle": "Los socios comerciales (puntos de venta y aplicadores) tienen acceso a una zona exclusiva para clientes en el sitio web mediante registro e inicio de sesión. Este panel incluye material digital descargable y otras herramientas."
+          },
+          {
+            "nombre": "Listas de Precios Actualizadas",
+            "detalle": "Los distribuidores pueden descargar las listas de precios más recientes para puntos de venta y compras mayoristas directamente desde el sitio web. Se recomienda guardar la dirección web para consultas futuras."
+          },
+          {
+            "nombre": "Capacitación y Asesoría Técnica",
+            "detalle": "Beneficio clave que incluye capacitación constante sobre los productos y su correcta aplicación, además de asesoramiento para la colocación del producto en el mercado."
+          },
+          {
+            "nombre": "Material Publicitario y de Marketing",
+            "detalle": "La empresa apoya a sus distribuidores con material publicitario impreso y digital descargable, incluyendo lonas grandes para promoción en locales. Se ofrece apoyo publicitario en redes sociales para los Puntos de Venta."
+          },
+          {
+            "nombre": "Descuentos Especiales y Ofertas",
+            "detalle": "Los aplicadores registrados obtienen descuentos especiales por volumen de compra, mientras que los Puntos de Venta se benefician de ofertas continuas."
+          },
+          {
+            "nombre": "Visibilidad en la Red de la Empresa",
+            "detalle": "Los Puntos de Venta son incluidos en el mapa de distribuidores de Imperdellanta, aumentando su visibilidad ante clientes potenciales."
+          }
+        ]
+      },
+      "contextoInterno": {
+        "titulo": "Contexto Adicional sobre Estrategias y Herramientas Internas",
+        "descripcion": "Las fuentes revelan dinámicas internas relacionadas con los recursos y estrategias de marketing.",
+        "puntos": [
+          {
+            "nombre": "Nuevas Presentaciones (7 y 12 años)",
+            "detalle": "Se han desarrollado nuevas etiquetas para productos con mayor durabilidad, pero la dirección ha instruido no ofrecerlas hasta agotar el inventario de las etiquetas de 3 años, una decisión que el personal de marketing y ventas considera imprudente."
+          },
+          {
+            "nombre": "Enfoque en Marketing Tradicional vs. Digital",
+            "detalle": "Existe una tensión interna sobre la estrategia de marketing. La dirección prioriza la imagen del local y el empaque, mostrando resistencia a invertir en publicidad digital, la cual es considerada crucial por el equipo de marketing para impulsar el negocio."
+          }
+        ]
+      }
+    },
+    "precios": {
+      "disponibilidad": "Las listas de precios están disponibles para descarga en el sitio web, tanto para puntos de venta como para compras mayoristas. Puedes ingresar en https://linktr.ee/imperdellanta",
+      "notaImportante": "Los precios pueden variar sin previo aviso. Se recomienda consultar la lista más actualizada disponible en la web para verificar la vigencia de los costos.",
+      "enlaceDescarga": "El sitio web proporciona un enlace para descargar la lista de precios vigente en  en https://linktr.ee/imperdellanta",
+      "formasDePago": "Efectivo o transferencia bancaria electrónica, en breve se implementará el pago con tarjeta de crédito o débito"
+    }
+  },
+  "systemInstruction": {
+    "parts": [
+      {
+        "text": "Eres un asistente de ventas virtual para 'Imperdellanta'. Tu tono debe ser amigable, profesional y servicial. Basa tus respuestas EXCLUSIVAMENTE en la BASE DE CONOCIMIENTO proporcionada. Si la respuesta no está en la base de conocimiento, amablemente di que no tienes esa información y sugiere contactar a un asesor de ventas por WhatsApp al número proporcionado. No inventes información. Sé conciso y anima al usuario a contactar por WhatsApp para más detalles. Nunca reveles que eres una IA."
+      }
+    ]
+  }
+}
